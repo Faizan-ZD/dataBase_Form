@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(193, 248, 248);
+    background-color: rgb(246, 253, 253);
 }
 .form0{
     border: 1px solid black;
@@ -12,7 +12,8 @@ body{
     border-bottom: none;
 }
 .form0 .form2{
-    margin-left: 90px;
+    margin-left: 65px;
+    position: fixed;
 }
 .form0 h2{
     font-family: 'Courier New', Courier, monospace;
