@@ -1,6 +1,6 @@
 let id = "faizu";
 // localStorage.clear();
-selecData();
+selectData();
 function manageData() {
   document.getElementById("msg").innerHTML = "";
   let name = document.getElementById("name").value;
@@ -9,6 +9,7 @@ function manageData() {
   } else {
     if (id != "") {
       let arr = JSON.parse(localStorage.getItem("crud"));
+    //   console.log(arr);
       if (arr == null) {
         let data = [name];
         localStorage.setItem("crud", JSON.stringify(data));
@@ -22,7 +23,7 @@ function manageData() {
     }
   }
 }
-function selecData() {
+function selectData() {
   let arr = JSON.parse(localStorage.getItem("crud"));
   if (arr != null) {
     let html = "";
@@ -30,7 +31,7 @@ function selecData() {
     for (let f in arr) {
       html =
         html +
-        `<tr><td>${sno}</td><td>${arr[f]}</td> <td href="javascript: void(0)"onclick="editdata(${f})"><button>edit</button></td> <td href="javascript: void(0)"onclick="deleteData(${f})"><button>delete</button></td> </tr>`;
+        `<tr><td>${sno}</td><td>${arr[f]}</td><td href="javascript: void(0)"onclick="editdata(${f})"><button>edit</button></td> <td href="javascript: void(0)"onclick="deleteData(${f})"><button>delete</button></td> </tr>`;
       sno++;
     }
     document.getElementById("root").innerHTML = html;
@@ -40,10 +41,13 @@ function deleteData(rid){
   let arr = JSON.parse(localStorage.getItem("crud"));
   arr.splice(rid,1);
   localStorage.setItem("crud", JSON.stringify(arr));
-  selecData();
+  selectData();
 }
 
 function editdata(rid){
     let arr = JSON.parse(localStorage.getItem("crud"));
     document.getElementById("name").value=arr[rid];
 }
+
+
+
